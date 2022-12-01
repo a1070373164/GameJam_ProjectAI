@@ -156,3 +156,28 @@ void AC_Slime::UpdateCharacter()
 		}
 	}
 }
+
+
+
+void AC_Slime::ChangeSize(int CurrentWeight)
+{
+	if (CurrentWeight > 10)
+	{
+		if (CurrentWeight < 20)
+		{
+			GetCapsuleComponent()->SetWorldScale3D(FVector(1 + (CurrentWeight - 10) * 0.2, 1 + (CurrentWeight - 10) * 0.2, 1 + (CurrentWeight - 10) * 0.2));
+			GetCharacterMovement()->MaxWalkSpeed = 600.0f * (CurrentWeight - 10) / 20;
+
+		}
+		
+	}
+	else
+	{
+		GetCapsuleComponent()->SetWorldScale3D(FVector(1, 1, 1));
+		GetCharacterMovement()->MaxWalkSpeed = 600.0f;
+	}
+
+}
+
+
+

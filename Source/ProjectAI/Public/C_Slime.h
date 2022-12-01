@@ -58,8 +58,17 @@ protected:
 public:
 	AC_Slime();
 
+	UFUNCTION(BlueprintCallable)
+	void ChangeSize(int CurrentWeight);
+
+
 	/** Returns SideViewCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetSideViewCameraComponent() const { return SideViewCameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int SlimeWeight = 10;
+
+
 };
