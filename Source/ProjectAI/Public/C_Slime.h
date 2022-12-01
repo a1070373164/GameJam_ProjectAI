@@ -70,5 +70,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int SlimeWeight = 10;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int JumpCount = 2;
 
 };

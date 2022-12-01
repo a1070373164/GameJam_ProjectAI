@@ -50,7 +50,7 @@ AC_Slime::AC_Slime()
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 
 	// Configure character movement
-	GetCharacterMovement()->GravityScale = 2.0f;
+	GetCharacterMovement()->GravityScale = 3.0f;
 	GetCharacterMovement()->AirControl = 0.80f;
 	GetCharacterMovement()->JumpZVelocity = 1000.f;
 	GetCharacterMovement()->GroundFriction = 3.0f;
@@ -163,11 +163,15 @@ void AC_Slime::ChangeSize(int CurrentWeight)
 {
 	if (CurrentWeight > 10)
 	{
-		if (CurrentWeight < 20)
+		if (CurrentWeight > 20)
+		{
+			
+
+		}
+		else
 		{
 			GetCapsuleComponent()->SetWorldScale3D(FVector(1 + (CurrentWeight - 10) * 0.2, 1 + (CurrentWeight - 10) * 0.2, 1 + (CurrentWeight - 10) * 0.2));
-			GetCharacterMovement()->MaxWalkSpeed = 600.0f * (CurrentWeight - 10) / 20;
-
+			GetCharacterMovement()->MaxWalkSpeed = 600.0f * (25-CurrentWeight) / 20;
 		}
 		
 	}
